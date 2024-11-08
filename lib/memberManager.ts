@@ -48,15 +48,18 @@ export class Manager {
     private timestampPath?: Term;
     private isVersionOfPath?: Term;
 
+    private loose: boolean;
+
     private logger = getLoggerFor(this);
 
-    constructor(ldesId: Term, state: Set<string>, info: LDESInfo) {
+    constructor(ldesId: Term, state: Set<string>, info: LDESInfo, loose: boolean) {
         this.ldesId = ldesId;
         this.state = state;
         this.extractor = info.extractor;
         this.timestampPath = info.timestampPath;
         this.isVersionOfPath = info.isVersionOfPath;
         this.shapeId = info.shape;
+        this.loose = loose;
 
         this.logger.debug(
             `new ${ldesId.value} ${JSON.stringify({
@@ -76,7 +79,7 @@ export class Manager {
     ) {
         const members = getObjects(
             page.data,
-            this.ldesId,
+            this.loose ? null : this.ldesId,
             TREE.terms.member,
             null,
         );

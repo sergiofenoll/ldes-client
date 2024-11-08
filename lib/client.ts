@@ -293,6 +293,7 @@ export class Client {
             this.streamId || viewQuads[0].subject,
             state.item,
             info,
+            this.config.loose,
         );
 
         this.logger.debug(`timestampPath ${!!info.timestampPath}`);
