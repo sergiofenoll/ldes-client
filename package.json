@@ -1,5 +1,5 @@
 {
-  "name": "@sergiofenoll/ldes-client",
+  "name": "@greyoda/ldes-client",
   "description": "This package provides common tooling to work with LDESes.",
   "version": "0.0.15",
   "main": "dist/lib/client.js",
