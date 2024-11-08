@@ -3,7 +3,7 @@ steps:
     image: node:20-slim
     commands:
       - corepack enable
-      - pnpm i --frozen-lockfile
+      - npm i
   version:
     image: node:20-slim
     commands:
